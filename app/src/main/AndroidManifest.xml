@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
+<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
     <application
         android:name=".TimeTrackerApp"
         android:allowBackup="true"
@@ -45,7 +45,16 @@
                 android:name="autoStoreLocales"
                 android:value="true" />
         </service>
-
+        <receiver
+            android:name=".feature_notification.fluidCloud.FluidCloudBroadcastReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.razeeman.util.simpletimetracker.ACTION_START_ACTIVITY" />
+                <action android:name="com.razeeman.util.simpletimetracker.ACTION_STOP_ACTIVITY" />
+                <action android:name="com.razeeman.util.simpletimetracker.ACTION_STOP_ALL_ACTIVITIES" />
+            </intent-filter>
+        </receiver>
     </application>
 
     <queries>
