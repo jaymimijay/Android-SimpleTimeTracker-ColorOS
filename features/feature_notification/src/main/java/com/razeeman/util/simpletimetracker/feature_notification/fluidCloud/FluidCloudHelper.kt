@@ -9,14 +9,9 @@ import android.content.Intent
 import android.graphics.Color
 import android.os.Build
 import androidx.core.app.NotificationCompat
-import dagger.hilt.android.qualifiers.ApplicationContext
-import javax.inject.Inject
-import javax.inject.Singleton
 
-@Singleton
-class FluidCloudHelper @Inject constructor(
-    @ApplicationContext private val context: Context
-) {
+class FluidCloudHelper(private val context: Context) {
+
     companion object {
         const val CHANNEL_ID = "fluid_cloud_timer_channel"
         const val NOTIFICATION_ID = 9001
