@@ -1,4 +1,4 @@
-name: Build with Fluid Cloud (OPPO)
+name: Build with Fluid Cloud (OPPO) - Release
 
 on:
   workflow_dispatch:
@@ -29,12 +29,12 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Build base debug APK
-        run: ./gradlew :app:assembleBaseDebug --stacktrace
+      - name: Build base release APK
+        run: ./gradlew :app:assembleBaseRelease --stacktrace
 
       - name: Upload APK artifact
         uses: actions/upload-artifact@v4
         with:
           name: simple-time-tracker-fluid-cloud-apk
-          path: app/build/outputs/apk/base/debug/*.apk
+          path: app/build/outputs/apk/base/release/*.apk
           retention-days: 7
